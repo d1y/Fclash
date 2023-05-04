@@ -15,7 +15,7 @@ import 'package:tray_manager/tray_manager.dart';
 import 'package:window_manager/window_manager.dart';
 
 final proxyManager = ProxyManager();
-final isDesktop = Platform.isLinux || Platform.isWindows || Platform.isMacOS;
+final isDesktop = GetPlatform.isDesktop;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -79,7 +79,7 @@ Future<void> initAppService() async {
   await Get.putAsync(() => ClashService().init());
   await Get.putAsync(() => DialogService().init());
   if (isDesktop) {
-     await Get.putAsync(() => AutostartService().init());
+    await Get.putAsync(() => AutostartService().init());
   }
   Get.put(ThemeController());
 }
