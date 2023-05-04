@@ -39,11 +39,7 @@ class _MainScreenState extends State<MainScreen>
   @override
   void onWindowClose() {
     super.onWindowClose();
-    if (Platform.isMacOS) {
-      windowManager.minimize();
-    } else {
-      windowManager.hide();
-    }
+    windowManager.hide();
   }
 
   @override

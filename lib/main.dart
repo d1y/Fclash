@@ -36,17 +36,17 @@ void main() async {
 
 Future<void> initWindow() async {
   WindowOptions opts = const WindowOptions(
-      minimumSize: Size(1024, 768),
-      size: Size(1024, 768),
-      titleBarStyle: TitleBarStyle.hidden);
+    minimumSize: Size(1024, 768),
+    size: Size(1024, 768),
+    center: true,
+    backgroundColor: Colors.transparent,
+    skipTaskbar: true,
+    titleBarStyle: TitleBarStyle.hidden,
+  );
   windowManager.waitUntilReadyToShow(opts, () {
     // hide window when start
     if (Get.find<ClashService>().isHideWindowWhenStart() && kReleaseMode) {
-      if (Platform.isMacOS) {
-        windowManager.minimize();
-      } else {
-        windowManager.hide();
-      }
+      windowManager.hide();
     }
   });
 }
