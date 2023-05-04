@@ -293,7 +293,7 @@ class _MainScreenState extends State<MainScreen>
                           const BoxDecoration(color: Colors.transparent),
                       child: const SpeedWidget()),
                 ),
-                const WindowPanel()
+                if (!Platform.isMacOS) const WindowPanel()
               ],
             ),
           ),
